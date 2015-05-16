@@ -20,11 +20,11 @@
     <div class="mainUnit"  ng-repeat="product in sc.infinite_product" ng-init="outerIndex = $index">
         <div class="row col-sm-offset-3">
             <div class="col-sm-8">
-                <div class="aboveImage" ng-model="sc.store.products">
+                <div ng-model="sc.store.products">
                     <span id="title">{{product.sale_title}} picked out by <span class="pink">{{product.fashionista.full_name}}</span></span><br>
-                <div><i>{{product.fashionista.location}}</i> {{product.released_at | date}}</div><br>
+                <div class="extraData"><i>{{product.fashionista.location}}</i> {{product.released_at | date}}</div><br>
                     <img class="mainImage" ng-src="{{sc.ci_array[$index].image}}"> </img><br>
-                    <div id="user">{{product.user}} | <span class="pink">{{product.sale_price | currency}}</span></div>
+                    <div id="user" class="extraData">{{product.user}} | <span class="pink">{{product.sale_price | currency}}</span></div>
                 </div>
             </div>
         </div>
