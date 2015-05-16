@@ -12,7 +12,7 @@
 </head>
 <body ng-app="stylepuzzle" ng-controller="scraperController as sc" >
 <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
-<img id = "underLogo"src="/static/Girls-Fashion-HD.jpg"> </img>
+<img id = "underLogo"src="/static/Girls-Fashion-HD.jpg" > </img>
 <img class="displayed" id="logo" src="/static/logo_h.png"> </img>
 <div id="startShopping">Start Shopping</div>
 <div class="container">
@@ -21,7 +21,7 @@
         <div class="row col-sm-offset-3">
             <div class="col-sm-8">
                 <div class="aboveImage" ng-model="sc.store.products">
-                    {{product.sale_title}} picked out by <span class="pink">{{product.fashionista.full_name}}</span><br>
+                    <span id="title">{{product.sale_title}} picked out by <span class="pink">{{product.fashionista.full_name}}</span></span><br>
                 <div><i>{{product.fashionista.location}}</i> {{product.released_at | date}}</div><br>
                     <img class="mainImage" ng-src="{{sc.ci_array[$index].image}}"> </img><br>
                     <div id="user">{{product.user}} | <span class="pink">{{product.sale_price | currency}}</span></div>

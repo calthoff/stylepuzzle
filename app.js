@@ -14,10 +14,7 @@ function chunk(arr, size) {
         store.ci_array  = [];
         store.thumb_array = [];
         store.final_thumb_array = []
-        // infinite scrolling
         var slice = 3;
-
-
         var link = 'https://cdn.rawgit.com/tobiaslei/c5c186ea75d05de6a195/raw/f40a5c0e4eb6106fa650dee82478999a65010ab9/feed.json';
         $http.get(link).success(function (data) {
             store.products = data.feed;
