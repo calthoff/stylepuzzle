@@ -69,6 +69,7 @@ IMG.displayed {
 #title {
     font-size: 1.4em;
 }
+
 @media only screen and (max-width: 767px) {
     /* phones */
     .mainUnit {
@@ -79,6 +80,4 @@ IMG.displayed {
     .thumbnail{
        margin-right: 20px;
     }
-
-
 }

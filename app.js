@@ -41,8 +41,8 @@ function chunk(arr, size) {
             store.ci_array.splice(image.div, 0, image);
         };
         $scope.loadMore = function() {
-            console.log('here');
             slice += 2;
+            console.log(typeof store.products)
             store.infinite_product = store.products.slice(0, slice);
         }
     }]);
