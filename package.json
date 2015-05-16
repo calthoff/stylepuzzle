@@ -1,0 +1,24 @@
+{
+  "name": "StylePuzzle",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "require": "latest"
+  },
+  "devDependencies": {
+    "watchify": "latest"
+  },
+  "description": "",
+  "main": "index.js",
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
+  },
+  "scripts": {
+    "start": "node index.js -p 8500",
+    "build": "browserify browser/browser.js -o static/bundle.js",
+    "watch": "watchify browser/browser.js -o static/bundle.js -dv"
+  },
+  "author": "Cory"
+}

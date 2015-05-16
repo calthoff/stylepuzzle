@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="stylepuzzle">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Style Puzzle</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+    <script type="text/javascript" src="/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body ng-controller="scraperController as sc" >
+<img id = "underLogo"src="/static/Girls-Fashion-HD.jpg"> </img>
+<img class="displayed" id="logo" src="/static/logo_h.png"> </img>
+<div id="startShopping">Start Shopping</div>
+<div class="container">
+    <!-- main photo and description units -->
+    <div class="mainUnit"  ng-repeat="product in sc.display" ng-init="outerIndex = $index">
+        <div class="row col-sm-offset-3">
+            <div class="col-sm-8">
+                <div class="aboveImage" ng-model="sc.store.products">
+                    {{product.sale_title}} picked out by <span class="pink">{{product.fashionista.full_name}}</span><br>
+                <div><i>{{product.fashionista.location}}</i> {{product.released_at | date}}</div><br>
+                    <img class="mainImage" ng-src="{{sc.ci_array[$index].image}}"> </img><br>
+                    <div id="user">{{product.user}} | <span class="pink">{{product.sale_price | currency}}</span></div>
+                </div>
+            </div>
+        </div>
+        <!-- thumbnails   -->
+        <div class="row col-sm-offset-4" ng-repeat="list in sc.final_thumb_array[outerIndex]">
+                <ul id="navlist">
+                    <li class="col-xs-4 col-md-2" ng-repeat="img in list" ng-click="click(img)">
+                        <img class="thumbnail" ng-src="{{img.image}}"/>
+                    </li>
+                </ul>
+        </div>
+        <div class="row col-md-offset-4">
+            <div class="description col-md-6">
+                <p>{{product.sale_description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
