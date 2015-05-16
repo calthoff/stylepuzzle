@@ -7,19 +7,20 @@ function chunk(arr, size) {
 }
 
 (function(){
-    var app = angular.module('stylepuzzle', []);
+    var app = angular.module('stylepuzzle', ['infinite-scroll']);
     app.controller('scraperController', ['$http', '$scope', function($http, $scope){
         var store = this;
-        store.ci_array  = [];
         store.products= {};
-        store.display = {};
+        store.ci_array  = [];
         store.thumb_array = [];
-        // TODO clean up
         store.final_thumb_array = []
+        // infinite scrolling
+        var slice = 3;
+
+
         var link = 'https://cdn.rawgit.com/tobiaslei/c5c186ea75d05de6a195/raw/f40a5c0e4eb6106fa650dee82478999a65010ab9/feed.json';
         $http.get(link).success(function (data) {
             store.products = data.feed;
-            store.display = store.products;
             for(i=0; i<store.products.length; i++){
                 store.ci_array.push(store.products[i].images[0]);
                 tmp_array = [];
@@ -33,16 +34,19 @@ function chunk(arr, size) {
             for (i in store.thumb_array){
                 store.final_thumb_array.push(chunk(store.thumb_array[i],2));
             }
+            // set up initial infinite scrolling value
+            store.infinite_product = store.products.slice(0, slice);
+            console.log(store.infinite_product)
+
         });
         $scope.click = function(image, index) {
-            //console.log('here' + store.ci_array.length);
             store.ci_array.splice(image.div, 1);
             store.ci_array.splice(image.div, 0, image);
         };
         $scope.loadMore = function() {
             console.log('here');
-        //slice += 2;
-        //store.display = store.products.slice(0, slice);
+            slice += 2;
+            store.infinite_product = store.products.slice(0, slice);
         }
     }]);
 })();
