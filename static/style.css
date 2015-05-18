@@ -5,13 +5,13 @@ body{
 }
 
 .mainUnit {
-    margin-top: 8%;
-    margin-bottom: 8%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 .thumbnail{
-    height:50px;
-    width: 50px;
+    height:70px;
+    width: 70px;
     margin-top:0px;
     margin-bottom:0px;
 }
@@ -97,6 +97,10 @@ li
         width: 2em;
     }
 
+    .thumbnail {
+        height: 50px;
+        width: 50px;
+    }
 
     body {
         font-size: 1.2em;
