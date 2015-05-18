@@ -10,40 +10,69 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css">
     <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
-<body ng-app="stylepuzzle" ng-controller="scraperController as sc" >
-<div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
+
+<body ng-app="stylepuzzle" ng-controller="scraperController as sc" infinite-scroll='loadMore()' infinite-scroll-distance='2' >
+
 <img id = "underLogo"src="/static/Girls-Fashion-HD.jpg" > </img>
 <img class="displayed" id="logo" src="/static/logo_h.png"> </img>
-<div id="startShopping">Start Shopping</div>
+
 <div class="container">
-    <!-- main photo and description units -->
+    <div class="row">
+        <div class="col-md-6 col-md-offset-4 col-sm-offset-3 col-xs-offset-1" id="startShopping">
+            Start Shopping
+        </div>
+    </div>
+    <!-- main units -->
     <div class="mainUnit"  ng-repeat="product in sc.infinite_product" ng-init="outerIndex = $index">
-        <div class="row col-sm-offset-3">
-            <div class="col-sm-8">
-                <div ng-model="sc.store.products">
-                    <span id="title">{{product.sale_title}} picked out by <span class="pink">{{product.fashionista.full_name}}</span></span><br>
-                <div class="extraData"><i>{{product.fashionista.location}}</i> {{product.released_at | date}}</div><br>
-                    <img class="mainImage" ng-src="{{sc.large_images[$index].image}}"> </img><br>
-                    <div id="user" class="extraData">{{product.user}} | <span class="pink">{{product.sale_price | currency}}</span></div>
-                </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-4 col-sm-offset-2 col-xs-offset-1">
+                <!-- title -->
+                <span id="title">{{product.sale_title}} picked {{product.released_at | date}} by <span class="pink">{{product.fashionista.full_name}}</span></span>
             </div>
         </div>
-        <!-- thumbnails   -->
-        <div class="row col-sm-offset-4" ng-repeat="list in sc.final_thumb[outerIndex]">
+
+        <!-- location -->
+        <div class="row" >
+            <div class="col-md-3 col-md-offset-4 col-sm-offset-2 col-xs-offset-1" id = "location">
+                <span ><i>{{product.fashionista.location}}</i></span>
+            </div>
+
+        </div>
+
+        <!-- large image -->
+        <div class="row">
+            <div class="col-md- col-md-offset-3 col-sm-offset-1 col-xs-offset-1">
+                <img id="mainImage" ng-src="{{sc.large_images[$index].image}}">
+            </div>
+        </div>
+
+        <!-- user  -->
+        <div class="row" id="user">
+            <div class="col-md-2 col-md-offset-3 col-md-push-2 col-sm-offset-4 col-xs-offset-3">
+                <img id="profilePic" ng-src="{{product.fashionista.profile_image}}"> &nbsp &nbsp{{product.user}} |
+                <span class="pink fontSize">{{product.sale_price | currency}}</span></p>
+            </div>
+        </div>
+
+        <!-- thumbnails -->
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-2">
                 <ul id="navlist">
-                    <li class="col-xs-4 col-md-2" ng-repeat="img in list" ng-click="click(img)">
+                    <li  ng-repeat="img in sc.thumb_array[outerIndex]" ng-click="click(img)">
                         <img class="thumbnail" ng-src="{{img.image}}"/>
                     </li>
                 </ul>
+            </div>
         </div>
-        <div class="row col-md-offset-4">
-            <div class="description col-md-6">
-                <p>{{product.sale_description}}</p>
+
+        <!-- description -->
+        <div class="row">
+            <div class="col-md-5 col-md-offset-4 col-sm-offset-2 col-sm-8">
+                {{product.sale_description | limitTo : 200}}
             </div>
         </div>
     </div>
 </div>
-</div>
-</div>
+
 </body>
 </html>

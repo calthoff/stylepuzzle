@@ -1,20 +1,31 @@
 body{
-    text-align: center;
+    font-size: 1.7em;
     font-family: 'Playball', serif;
+
 }
 
 .mainUnit {
     margin-top: 8%;
     margin-bottom: 8%;
 }
-.mainImage{
-    height: 100%;
-    width: 100%;
-    max-width: 700px;
+
+.thumbnail{
+    height:50px;
+    width: 50px;
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+li
+{
+    display:inline-block;
+    list-style-type: none;
+    margin-left: 10px;
+
 }
 
 #logo{
-    width: 35%;
+    width: 45%;
     max-width: 400px;
     position: absolute;
     top: 2em;
@@ -27,57 +38,67 @@ body{
     max-height: 700px;
 }
 
-.thumbnail{
-    height:5em;
-    width: 5em;
+#startShopping {
+    font-family: Georgia;
+    font-size: 2.5em;
+    margin-top:2%;
 }
 
-IMG.displayed {
-    display: block;
-    margin-left: auto;
-    margin-right: auto; }
+#mainImage{
+    max-width: 600px;
+    max-height: 600px;
+    width: 90%;
+    height: 40%;
+}
+#title {
+    margin-bottom:1%;
+    font-size: 1.1em;
+}
 
-.description{
-    font-size: 1.3em;
+#user {
+    margin-top: 1%;
+    margin-bottom:1%;
+}
+
+#location {
+    margin-bottom:1%;
+}
+
+#profilePic{
+    height: 2em;
+    width: 2em;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
 }
 
 .pink{
     color: pink;
 }
 
-#navlist li
-{
-    display: inline;
-    list-style-type: none;
-}
 
-#startShopping {
-    font-family: Georgia;
-    font-size: 3em;
-    margin-top:2%;
-}
 
-#user{
-    margin-top:2%;
-    margin-bottom:4%;
-}
-
-.extraData{
-    font-size: 1.28em;
-}
-
-#title {
-    font-size: 1.4em;
-}
-
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
     /* phones */
     .mainUnit {
         margin-top: 15%;
-        margin-bottom: 15%;
+        margin-bottom: 25%;
     }
 
-    .thumbnail{
-       margin-right: 20px;
+    #logo {
+        width: 60%;
+    }
+
+    #startShopping {
+        font-size: 2em;
+    }
+
+    #profilePic {
+        height: 2em;
+        width: 2em;
+    }
+
+
+    body {
+        font-size: 1.2em;
     }
 }
